@@ -258,6 +258,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
     export default {
         data() {
             return {
@@ -269,12 +270,21 @@
                     src: './../../../static/img/home/横幅广告.png.png',
                 }]
             }
+        },
+        mounted(){
+            this.get_teacher()
+        },
+        methods: {
+            get_teacher(){
+                axios.get('/api/teach/teacher/listUTeacher').then(res => {
+
+                })
+            }
         }
     }
 
 </script>
 <style scoped>
-    #homepage {}
 
     .headerNav {
         width: 1024px;
