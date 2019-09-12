@@ -13,55 +13,18 @@
             <div class="boxtwo">
                 <h2>授课类型</h2>
                 <div class="boxtwo_box">
-                    <p>不限</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                </div>
-            </div>
-            <div class="boxtwo">
-                <h2>授课年级</h2>
-                <div :class="{boxtwo_box:true,active1:flag1}">
-                    <p>不限</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                </div>
-                <div class="shouqi" @click="hiddenbox1"><span v-if="!flag1">收起</span><span v-else>展开</span>
-                    <img v-if="!flag1" src="./../../../static/img/teacher/收起.png" alt="">
-                    <img v-else src="./../../../static/img/teacher/展开.png" alt="">
+                    <p :class="{active:pflag == ''}" @click="checkedClasify('')">不限</p>
+                    <p :class="{active:pflag == 2}" @click="checkedClasify(2)">小学课程</p>
+                    <p :class="{active:pflag == 3}" @click="checkedClasify(3)">初中课程</p>
+                    <p :class="{active:pflag == 4}" @click="checkedClasify(4)">高中课程</p>
+                    <p :class="{active:pflag == 5}" @click="checkedClasify(5)">兴趣特长</p>
                 </div>
             </div>
             <div class="boxtwo">
                 <h2>授课科目</h2>
                 <div :class="{boxtwo_box:true,active2:flag2}">
-                    <p>不限</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
+                    <p :class="{active:boxflag == -1}" @click="checkedbox('')" >不限</p>
+                    <p :class="{active:boxflag == index}" @click="checkedbox(item.classifyName,index)" v-for="(item,index) in classify_list" :key="index">{{item.classifyName}}</p>
                 </div>
                 <div class="shouqi" @click="hiddenbox"><span v-if="!flag2">收起</span><span v-else>展开</span>
                     <img v-if="!flag2" src="./../../../static/img/teacher/收起.png" alt="">
@@ -72,13 +35,10 @@
                 <h2>上门区域</h2>
                 <div class="boxtwo_box">
                     <p>不限</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
-                    <p>小学</p>
+                    <p>未央区</p>
+                    <p>长安区</p>
+                    <p>咸阳</p>
+                    <p>临潼区</p>
                 </div>
             </div>
             <div class="boxtwo">
@@ -111,58 +71,20 @@
             </p>
         </div>
         <div class="teacherlist">
-            <div class="onebox">
+            <div class="onebox" v-for="(item,index) in teacherList" :key="index">
                 <div class="picbox">
                     <img src="./../../../static/img/teacher/t1.png" alt="">
                 </div>
                 <div class="msgbox">
-                    <p class="namebox">陈老师 <span>西安电子科技大学</span><span class="schoolbox">本科</span></p>
+                    <p class="namebox">李老师<span>{{item.teachTeacher.school}}</span><span class="schoolbox">{{item.teachTeacher.grade}}</span></p>
                     <p class="namebox namemiddlebox">初中数学/高中数学</p>
                     <p>
-                        <span class="primybox">数模比赛第一</span>
-                        <span class="primybox">数模比赛第一</span>
-                        <span class="primybox">数模比赛第一</span>
+                        <span class="primybox">{{item.teachTeacher.honor}}</span>
                     </p>
                 </div>
                 <div class="conbox">
-                    <div>授课<span class="hour">&nbsp;256&nbsp;</span>小时</div>
-                    <div class="teacherdetail">教员详情<img src="./../../../static/img/teacher/＞.png" alt=""> </div>
-                </div>
-            </div>
-            <div class="onebox">
-                <div class="picbox">
-                    <img src="./../../../static/img/teacher/t1.png" alt="">
-                </div>
-                <div class="msgbox">
-                    <p class="namebox">陈老师 <span>西安电子科技大学</span><span class="schoolbox">本科</span></p>
-                    <p class="namebox namemiddlebox">初中数学/高中数学</p>
-                    <p>
-                        <span class="primybox">数模比赛第一</span>
-                        <span class="primybox">数模比赛第一</span>
-                        <span class="primybox">数模比赛第一</span>
-                    </p>
-                </div>
-                <div class="conbox">
-                    <div>授课<span class="hour">&nbsp;256&nbsp;</span>小时</div>
-                    <div class="teacherdetail">教员详情<img src="./../../../static/img/teacher/＞.png" alt=""> </div>
-                </div>
-            </div>
-            <div class="onebox">
-                <div class="picbox">
-                    <img src="./../../../static/img/teacher/t1.png" alt="">
-                </div>
-                <div class="msgbox">
-                    <p class="namebox">陈老师 <span>西安电子科技大学</span><span class="schoolbox">本科</span></p>
-                    <p class="namebox namemiddlebox">初中数学/高中数学</p>
-                    <p>
-                        <span class="primybox">数模比赛第一</span>
-                        <span class="primybox">数模比赛第一</span>
-                        <span class="primybox">数模比赛第一</span>
-                    </p>
-                </div>
-                <div class="conbox">
-                    <div>授课<span class="hour">&nbsp;256&nbsp;</span>小时</div>
-                    <div class="teacherdetail">教员详情<img src="./../../../static/img/teacher/＞.png" alt=""> </div>
+                    <div>授课<span class="hour">&nbsp;{{item.teachTeacher.durationTime}}&nbsp;</span>小时</div>
+                    <div class="teacherdetail" @click="to_detail">教员详情<img src="./../../../static/img/teacher/＞.png" alt=""> </div>
                 </div>
             </div>
             <div class="footerbox">
@@ -173,19 +95,48 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
     export default {
         data() {
             return {
-                flag1: false,
+                pflag:'',
+                boxflag:-1,
                 flag2: false,
+                classify_list:[],
+                teacherList:[]
             }
         },
+        mounted(){
+            this.checkedClasify('');
+            this.getTeacher()
+        },
         methods: {
-            hiddenbox1() {
-                this.flag1 = !this.flag1
-            },
             hiddenbox() {
                 this.flag2 = !this.flag2
+            },
+            to_detail(){
+                this.$router.push({
+                    path:'teacherdetail'
+                })
+            },
+            checkedClasify(i){
+                this.pflag = i;
+                axios.get('/api/teach/classify/list?pid='+i).then(res => {
+                    this.classify_list = res.data.data.content;
+                })
+            },
+            checkedbox(name,i){
+                this.boxflag = i;
+            },
+            getTeacher(){
+                let params = {
+
+                }
+                axios.get('/api/teach/teacher/listUTeacher').then(res => {
+                    this.teacherList = res.data.data.list
+
+                    console.log(JSON.stringify(this.teacherList))
+                })
             }
         }
     }
@@ -260,6 +211,9 @@
         display: flex;
         flex-wrap: wrap;
         width: 815px;
+    }
+    .active{
+        color: #2EB268 !important;
     }
 
     .active1 {
@@ -410,6 +364,7 @@
         color: rgba(0, 0, 0, 0.54) !important;
         margin-top: 88px;
         box-sizing: border-box;
+        cursor: pointer;
     }
     .footerbox{
         text-align: center;

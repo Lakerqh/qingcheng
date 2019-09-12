@@ -155,6 +155,8 @@
             </div>
         </div>
         <div class="teacherinhome">
+            <div class="titleinhome">让专业老师走入家门，同时走进孩子的世界</div>
+            <div class="titleinhome2">免于奔波，一对一学习，更高效、更安全，让家成为孩子最钟爱的课堂</div>
             <div class="inhomebox">
                 <img class="onepic" src="./../../../static/img/home/上门个性化教学.png.png" alt="">
                 <img class="twopic" src="./../../../static/img/home/在线高效教学.png.png" alt="">
@@ -258,7 +260,7 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
+    import axios from 'axios'
     export default {
         data() {
             return {
@@ -271,11 +273,11 @@ import axios from 'axios'
                 }]
             }
         },
-        mounted(){
+        mounted() {
             this.get_teacher()
         },
         methods: {
-            get_teacher(){
+            get_teacher() {
                 axios.get('/api/teach/teacher/listUTeacher').then(res => {
 
                 })
@@ -285,7 +287,6 @@ import axios from 'axios'
 
 </script>
 <style scoped>
-
     .headerNav {
         width: 1024px;
         height: 60px;
@@ -404,8 +405,23 @@ import axios from 'axios'
         background: url('./../../../static/img/home/老师走入家门.png.png') no-repeat;
         background-size: 100% 100%;
         margin-top: 70px;
-        padding-top: 160px;
+        /* padding-top: 160px; */
         box-sizing: border-box;
+    }
+
+    .titleinhome {
+        font-size: 36px;
+        font-family: FZLanTingHeiS-R-GB;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        padding: 40px 0 25px 250px;
+        box-sizing: border-box;
+    }
+     .titleinhome2{
+         font-size: 24px;
+         color: #ffffff;
+         padding: 0 0 20px 390px;
+         box-sizing: border-box;
     }
 
     .inhomebox {
@@ -604,7 +620,8 @@ import axios from 'axios'
         width: 600px;
         padding-top: 18px;
     }
-    .sixboxtwoboxq{
+
+    .sixboxtwoboxq {
         justify-content: space-around !important;
     }
 
