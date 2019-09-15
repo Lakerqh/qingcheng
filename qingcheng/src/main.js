@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
+import animated from 'animate.css' // npm install animate.css --save安装，在引入
+ 
+Vue.use(animated)
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

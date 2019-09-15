@@ -50,11 +50,11 @@
                 </div>
             </div>
             <div class="boxtwo">
-                <h2>老师性别</h2>
+                <h2>院校</h2>
                 <div class="boxtwo_box">
                     <p>不限</p>
-                    <p>男</p>
-                    <p>女</p>
+                    <p>985</p>
+                    <p>211</p>
                 </div>
             </div>
         </div>
